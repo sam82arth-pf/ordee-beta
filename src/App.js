@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Navbar from './Navbar';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
+import Cards from './Cards';
 
 function App() {
   return (
@@ -14,6 +14,7 @@ function App() {
           </Route>
           <Route path='/'>
             <Navbar />
+            <Cards />
           </Route>
         </Switch>
       </div>
