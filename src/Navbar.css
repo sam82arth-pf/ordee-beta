@@ -1,0 +1,24 @@
+.navbar {
+    background-color: black;
+    display: flex;
+    height:100px;
+    align-items: center;
+    width:100%;
+    justify-content: center;
+    position: sticky;
+    z-index: 100;
+  }
+  
+  .navicon {
+    object-fit: contain;
+    width: 180px;
+    height: 100px;
+    margin-top: -9px;
+  }
+
+  .user_icon {
+    width: 85px;
+    height: 75px;
+    margin-top: 10px; 
+    justify-content: end;
+  }
