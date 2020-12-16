@@ -9,7 +9,7 @@ function admin() {
     <div>
        <Navbar/>
       <div className="Admin__Title">
-        <h1>Hey Palash,Admin features coming soo....</h1>
+        <h1>Hey Palash,Admin features coming soon....</h1>
       </div>
     </div>
   );
