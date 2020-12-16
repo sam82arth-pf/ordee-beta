@@ -1,8 +1,11 @@
 import React,{useState} from 'react'
 import './Cards.css';
 
+
 function Cardflip({card}) {
     const[flip,setFlip] = useState(false);
+
+    console.log(card.length);
 
     return (
         <div>
@@ -13,8 +16,9 @@ function Cardflip({card}) {
          <div className = 'front'>
              {card.title}
          </div>
-         <div className = 'back'  >
+         <div className = 'back' >
              {card.text}
+             
        </div>
         </div>
         </div>
