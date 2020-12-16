@@ -5,6 +5,7 @@ import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import {Sidebardata } from './Sidebardata';
 import {IconContext} from 'react-icons';
+import{auth} from './firebase';
 
 
 function Navbar() {
@@ -37,7 +38,7 @@ function Navbar() {
               })}
             </ul>
           </nav>
-           <Link to="/Login">
+           <Link to="/">
            <img 
              className="navicon" 
              src={"./ordee2.png"} 
@@ -49,7 +50,7 @@ function Navbar() {
               className="user_icon"
               src="https://www.searchpng.com/wp-content/uploads/2019/02/Profile-ICon.png"
               alt=""
-              /*onClick={() => auth.signOut() */
+              onClick={() => auth.signOut()}
             />
             </Link>
         </nav>
