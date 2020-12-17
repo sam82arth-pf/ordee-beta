@@ -34,6 +34,9 @@ function App() {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [modalStyle] = React.useState(getModalStyle);
+  const [phone, setPhone] = useState("");
+  const [firstName, setfirstName] = useState("");
+  const [lastName, setlastName] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -87,6 +90,24 @@ function App() {
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
+              />
+              <Input
+                placeholder="Firstname"
+                type="text"
+                value={firstName}
+                onChange={(e) => setfirstName(e.target.value)}
+              />
+              <Input
+                placeholder="Lastname"
+                type="text"
+                value={lastName}
+                onChange={(e) => setlastName(e.target.value)}
+              />
+              <Input
+                placeholder="Phone"
+                type="text"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
               />
 
               <Input
