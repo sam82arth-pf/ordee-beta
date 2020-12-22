@@ -1,13 +1,17 @@
 import React,{useState} from 'react'
 import './Cards.css';
+import {db} from './firebase'
+
+
 
 function Cardflip({card}) {
     const[flip,setFlip] = useState(false);
 
+
     return (
         <div>
             <div 
-        className={`card ${flip ? 'flip' : ''}`}
+        className={`card ${(card.text.length > 0 ) ? 'flip' : ''}`}
          onClick={() =>{setFlip(!flip)}}
         >
          <div className = 'front'>
@@ -15,6 +19,7 @@ function Cardflip({card}) {
          </div>
          <div className = 'back'  >
              {card.text}
+             
        </div>
         </div>
         </div>
