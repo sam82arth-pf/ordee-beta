@@ -4,6 +4,7 @@ import {db} from "./firebase";
 
 
 function Cards(){
+
     const[posts1,setPosts1] = useState([]);
     const[posts2,setPosts2] = useState([]);
     const[posts3,setPosts3] = useState([]);
@@ -78,7 +79,7 @@ function Cards(){
   
     return <div className="grid">
         {cardInfo.map((card,index) => {
-               return<Cardsflip card={card} key={index} />
+               return<Cardsflip card={card} key={index}  />
         })
     }
     </div>
