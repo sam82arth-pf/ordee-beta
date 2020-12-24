@@ -30,7 +30,7 @@ function Navbar() {
                 return(
                   <li key={index} className={item.cName}>
                       <Link to={item.path}>
-                      {item.icom}
+                      {item.icon}
                       <span>{item.title}</span>
                       </Link>
                   </li>
@@ -38,13 +38,12 @@ function Navbar() {
               })}
             </ul>
           </nav>
-           <Link to="/">
+           
            <img 
              className="navicon" 
              src={"./ordee2.png"} 
              alt="" />
-           </Link>
-          
+           
             <Link>
             <img
               className="user_icon"
