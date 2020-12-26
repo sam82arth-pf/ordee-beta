@@ -1,65 +1,121 @@
 body {
-    font-family: "Roboto", sans-serif;
-  }
-  
-  .card {
-    margin: 20px;
-    height: 280px;
-    width: 280px;
-    background-color: #0b85a2;
-    border-radius: 50%;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    position: relative;
-    font-size: 5vh;
-    font-weight: 600;
-    color: rgb(14, 13, 13);
-    -webkit-box-shadow: 0px 12px 18px -6px rgba(0, 0, 0, 0.3);
-    box-shadow: 10px 12px 18px -6px rgba(37, 37, 37, 0.753);
-    transform-style: preserve-3d;
-    transition: 150ms;
-    transform: perspective(1000px) rotateY(var(--rotate-y, 0))
-      translateY(var(--translate-y, 0));
-  }
-  
-  .card:hover {
-    --translate-y: -8px;
-    box-shadow: 0 0 5px 1px rgb(165, 166, 167);
-  }
-  
-  .card.flip {
-    --rotate-y: 180deg;
-  }
-  
-  .card .back {
-    transform: rotateY(180deg);
-  }
-  
-  .card:hover {
-    --translate-y: -8px;
-    box-shadow: 0 0 5px 1px rgb(165, 166, 167);
-  }
-  
-  .card .front,
-  .card .back {
-    position: absolute;
-    padding: 1rem;
-    backface-visibility: hidden;
-  }
-  
-  .grid {
-    min-height: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    margin-top: 130px;
-    justify-content: center;
-    /* margin-left: 135px; */
-  }
-  
-  .grid > div {
-    flex-basis: calc(25% - 40px);
-  }
-  
+  font-family: 'Cookie', cursive;
+  font-family: 'Parisienne', cursive;
+  font-family: 'Satisfy', cursive;
+  background: #ece9e6; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to bottom,
+    #e9e5e5,
+    #ddd9d4
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    #fdfdfd,
+    #d4d1ce
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.card {
+  margin: 20px;
+  height: 280px;
+  width: 280px;
+  background: #314755; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to bottom,
+    #26a0da,
+    #314755
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    #26a0da,
+    #314755
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  border-radius: 50%;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  position: relative;
+  font-size: 6vh;
+  font-weight: 400;
+  color: white;
+  -webkit-box-shadow: 0px 12px 18px -6px rgba(0, 0, 0, 0.3);
+  box-shadow: 10px 12px 18px -6px rgba(37, 37, 37, 0.753);
+  transform-style: preserve-3d;
+  transition: 150ms;
+  transform: perspective(1000px) rotateY(var(--rotate-y, 0))
+    translateY(var(--translate-y, 0));
+}
+
+.card:hover {
+  --translate-y: -8px;
+  box-shadow: 0 0 5px 1px rgb(165, 166, 167);
+}
+
+.card.flip {
+  --rotate-y: 180deg;
+  background: #e0eafc; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to top,
+    #cfdef3,
+    #e0eafc
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to top,
+    #cfdef3,
+    #e0eafc
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  color: #0b85a2;
+}
+
+.card .front img {
+  border-radius: 50%;
+  object-fit: cover;
+  width: 40%;
+  z-index: -1;
+  /* margin-top: -25px; */
+  text-align: center;
+}
+
+.card .back img {
+  border-radius: 50%;
+  object-fit: cover;
+  width: 114%;
+  z-index: -1;
+  margin-top: 5px;
+  margin-left: -17px;
+  text-align: center;
+}
+
+.card .back {
+  transform: rotateY(180deg);
+}
+
+.card:hover {
+  --translate-y: -8px;
+  box-shadow: 0 0 5px 1px rgb(165, 166, 167);
+}
+
+.card .front,
+.card .back {
+  position: absolute;
+  padding: 1rem;
+  backface-visibility: hidden;
+}
+
+.grid {
+  min-height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-top: 130px;
+  justify-content: center;
+  /* margin-left: 135px; */
+  text-align: center;
+}
+
+.grid > div {
+  flex-basis: calc(25% - 40px);
+}
