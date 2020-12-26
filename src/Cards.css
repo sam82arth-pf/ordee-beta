@@ -6,7 +6,7 @@ body {
     margin: 20px;
     height: 280px;
     width: 280px;
-    background-color: #0b85a2;
+    background-color: #bae5f0;
     border-radius: 50%;
     cursor: pointer;
     align-items: center;
@@ -19,7 +19,7 @@ body {
     -webkit-box-shadow: 0px 12px 18px -6px rgba(0, 0, 0, 0.3);
     box-shadow: 10px 12px 18px -6px rgba(37, 37, 37, 0.753);
     transform-style: preserve-3d;
-    transition: 150ms;
+    transition: 300ms;
     transform: perspective(1000px) rotateY(var(--rotate-y, 0))
       translateY(var(--translate-y, 0));
   }
@@ -31,6 +31,7 @@ body {
   
   .card.flip {
     --rotate-y: 180deg;
+     background-color: aliceblue;
   }
   
   .card .back {
