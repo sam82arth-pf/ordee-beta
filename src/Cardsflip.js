@@ -1,24 +1,29 @@
 import React,{useState} from 'react'
 import './Cards.css';
-import {db} from './firebase'
+import {db} from './firebase';
 
 
 
-function Cardflip({card}) {
-    const[flip,setFlip] = useState(false);
+function Cardflip({table,index}) {
 
+ 
+    const deletes = () => {
+        db.collection("posts").doc(index)
+          .update('table','')
+      };
 
+      
     return (
-        <div>
+        <div >
             <div 
-        className={`card ${(card.text.length > 0 ) ? 'flip' : ''}`}
-         onClick={() =>{setFlip(!flip)}}
+        className={`card ${(table.length > 0 ) ? 'flip' : ''}`}
+        onClick={deletes}
         >
-         <div className = 'front'>
-             {card.title}
+         <div className = 'front' >
+            Table{index}
          </div>
          <div className = 'back'  >
-             {card.text}
+         {table}
              
        </div>
         </div>
