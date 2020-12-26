@@ -16,7 +16,8 @@ function Cards(){
       })
     },[]);
   
-    return (<div className="grid">
+    return 
+    (<div className="grid">
         {posts.map(({card,id}) => {
           console.log(id);
                return<Cardsflip table={card.table} index={id}  />
