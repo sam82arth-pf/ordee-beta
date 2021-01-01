@@ -42,7 +42,10 @@ function Navbar() {
            <img 
              className="navicon" 
              src={"./ordee2.png"} 
-             alt="" />
+             alt="" 
+             onClick={() => auth.signOut()}
+             />
+             
            
             <Link>
             <img
