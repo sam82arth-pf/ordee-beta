@@ -3,23 +3,23 @@ import Cardsflip from "./Cardsflip";
 import {db} from "./firebase";
 
 
-function Cards(){
+
+
+function Cards({user}){
 
     const[posts,setPosts] = useState([]);
     
     useEffect(()=>{
-      db.collection('posts').onSnapshot(snapshot =>{
-        setPosts(snapshot.docs.map(doc =>({
-          id: doc.id,
-          card: doc.data()
+      db.collection('Restaurant').doc(user.uid).collection("tables").onSnapshot(snapshot =>{
+        setPosts(snapshot.docs.map(docu =>({
+          id: docu.id,
+          card: docu.data()
         })));      
       })
     },[]);
   
-    return 
-    (<div className="grid">
+    return (<div className="grid">
         {posts.map(({card,id}) => {
-          console.log(id);
                return<Cardsflip table={card.table} index={id}  />
         })
     }
