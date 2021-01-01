@@ -4,11 +4,11 @@ import {db} from './firebase';
 
 
 
-function Cardflip({table,index}) {
+function Cardflip({table,index,user}) {
 
  
     const deletes = () => {
-        db.collection("posts").doc(index)
+        db.collection("Restaurant").doc(user.uid).collection("tables").doc(index)
           .update('table','')
       };
       
@@ -19,7 +19,7 @@ function Cardflip({table,index}) {
         onClick={deletes}
         >
          <div className = 'front' >
-            Table{index}
+            <h3>No orders</h3>
          </div>
          <div className = 'back'  >
         {table}
