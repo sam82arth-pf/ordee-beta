@@ -1,111 +1,140 @@
-import React from 'react'
-import './LoginForm.css'
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { db, auth } from "./firebase";
+import "./LoginForm.css";
+import { Link,Redirect  } from "react-router-dom";
 import Cards from "./Cards";
+import Navbar from "./Navbar";
 
-class LoginForm extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            maskStyle: {
-                left: 512,
-                right: 0
-            }
-        }
 
-        this.container = React.createRef()
-        // this.signUpBtn = React.createRef()
+function LoginForm() {
+    const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [user, setUser] = useState(null);
+  const container = document.getElementById("container");
+  
 
-        this.onSignIn = this.onSignIn.bind(this)
-        this.onSignUp = this.onSignUp.bind(this)
-    }
 
-    componentDidMount() {
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((authUser) => {
+      if (authUser) {
+        setUser(authUser);
+      } else {
+        setUser(null);
+      }
+    });
+    return () => {
+      unsubscribe();
+      
+    };
+  }, [user]);
 
-    }
-    componentWillUnmount() {
-        clearInterval(this.interval);
+  const Login = (event) => {
+    event.preventDefault();
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .catch((error) => alert(error.message));
+   
+  };
+  const SignUp = (event) => {
+    event.preventDefault();
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((cred) => {
+        return db.collection("posts").doc(cred.user.uid).set({
+          Name: username,
+        });
+      })
+      .catch((error) => alert(error.message));
+   
+  };
+  const signUpButton = () => {
+    container.classList.add("right-panel-active");
+  };
 
-    }
+  const signInButton = () => {
+    container.classList.remove("right-panel-active");
+  };
 
-    onSignUp() {
-        this.container.current.classList.add("right-panel-active");
-    }
-    onSignIn() {
-        debugger
-        this.container.current.classList.remove("right-panel-active");
-    }
+  return (
 
-    render() {
-        const clipValue = `inset(0 ${this.state.maskStyle.left}px 0 ${this.state.maskStyle.right}px)`
-        // const clipValue =  `inset(0 200px 0 200px)`
 
-        return (
-            <div className="pflogo">
-            <img
-              className="logo"
-              src={'./pf_circle.png'}
-              alt=""
-            />
-           
-                
-            <div className="container" id="container" ref={this.container}>
-                <div className="form-container sign-up-container">
-                    <form action="#">
-                        <h1>Create Account</h1>
-                        <div className="social-container">
-                            <a href="#" className="social">
-                                <i className="fab fa-facebook-f"></i>
-
-                                </a>
-                            <a href="#" className="social">
-                                <i className="fab fa-google-plus-g"></i>
-                            </a>
-                            <a href="#" className="social">
-                                <i className="fab fa-linkedin-in"></i>
-                            </a>
-                        </div>
-                        <span>or use your email for registration</span>
-                        <input type="text" placeholder="Name" />
-                        <input type="email" placeholder="Email" />
-                        <input type="password" placeholder="Password" />
-                        <button onClick={this.onSignUp}>Sign Up</button>
-                    </form>
-                </div>
-                <div className="form-container sign-in-container">
-                    <form action="#">
-                        <h1>Sign in</h1>
-                        <div className="social-container">
-                            <a href="#" className="social"><i className="fab fa-facebook-f"></i></a>
-                            <a href="#" className="social"><i className="fab fa-google-plus-g"></i></a>
-                            <a href="#" className="social"><i className="fab fa-linkedin-in"></i></a>
-                            </div>
-                        <span>or use your account</span>
-                        <input type="email" placeholder="Email" />
-                        <input type="password" placeholder="Password" />
-                        <a href="#">Forgot your password?</a>
-                        <button onClick={this.onSignIn}>Sign in</button>
-                    </form>
-                </div>
-                <div className="overlay-container">
-                    <div className="overlay">
-                        <div className="overlay-panel overlay-left">
-                            <h1>Welcome Back!</h1>
-                            <p>To keep connected with us please login with your personal info</p>
-                            <button className="ghost" id="signIn" onClick={this.onSignIn}>Sign In</button>
-                        </div>
-                        <div className="overlay-panel overlay-right">
-                            <h1>Hello,</h1>
-                            <p>Enter your personal details and get on board with us</p>
-                            <button className="ghost" id="signUp" onClick={this.onSignUp}>Sign up</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-             )
-            
-            }
-        }
+    <div className="container" id="container">
+{user?(user.email === "k@g.com" ? (
+          <Redirect to="/Admin" />
+        ) : (
+          <Redirect to="/Test"/>
+        )):(console.log('hello'))}
+      <div className="form-container sign-up-container">
+        <form action="#">
+          <h1>Create Account</h1>
+          
+          <div className="social-container">
+            <a href="#" className="social">
+              <i className="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" className="social">
+              <i className="fab fa-google-plus-g"></i>
+            </a>
+            <a href="#" className="social">
+              <i className="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+          <span>or use your email for registration</span>
+          <input type="text" placeholder="Name"  value={username}
+                onChange={(e) => setUsername(e.target.value)}/>
+          <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+          <input type="password" placeholder="Password" value={password}
+                onChange={(e) => setPassword(e.target.value)}/>
+          <button onClick={SignUp}>Sign Up</button>
+        </form>
         
-        export default LoginForm
+      </div>
+      <div className="form-container sign-in-container">
+        <form action="#">
+          <h1>Sign in</h1>
+          <div className="social-container">
+            <a href="#" className="social">
+              <i className="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" className="social">
+              <i className="fab fa-google-plus-g"></i>
+            </a>
+            <a href="#" className="social">
+              <i className="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+          <span>or use your account</span>
+          <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+          <input type="password" placeholder="Password" value={password}
+                onChange={(e) => setPassword(e.target.value)}/>
+          <a href="#">Forgot your password?</a>
+          <button onClick={Login}>Sign in</button>
+        </form>
+      </div>
+      <div className="overlay-container">
+        <div className="overlay">
+          <div className="overlay-panel overlay-left">
+            <h1>Welcome Back!</h1>
+            <p>
+              To keep connected with us please login with your personal info
+            </p>
+            <button className="ghost"  id="signIn" onClick={signInButton}>
+                {/*check for id here as refreshing the page does not support animation and displays error */}
+              Sign In
+            </button>
+          </div>
+          <div className="overlay-panel overlay-right">
+            <h1>Hello,</h1>
+            <p>Enter your personal details and get on board with us</p>
+            <button className="ghost" id="containe" onClick={signUpButton}>
+              Sign up
+            </button>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  );
+}
+export default LoginForm;
