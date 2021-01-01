@@ -11,7 +11,6 @@ function Cardflip({table,index}) {
         db.collection("posts").doc(index)
           .update('table','')
       };
-
       
     return (
         <div >
@@ -23,8 +22,7 @@ function Cardflip({table,index}) {
             Table{index}
          </div>
          <div className = 'back'  >
-         {table}
-             
+        {table}
        </div>
         </div>
         </div>
