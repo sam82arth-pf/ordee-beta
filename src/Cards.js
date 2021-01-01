@@ -1,51 +1,30 @@
-import React,{useState} from "react";
+import React,{useState,useEffect} from "react";
 import Cardsflip from "./Cardsflip";
+import {db} from "./firebase";
 
 
 
-function Cards(){
- 
-  const cardInfo = [
-    {
-      title: 'Table 1',
-      text:"hello there",
-    },
-    {
-      title: "Table 2",
-      text: "hello there",
-    },
-    {
-      title: "Table 3",
-      text: "hello there",
-    },
-    {
-        title: "Table 4",
-        text: "hello there",
-      },
-      {
-        title: "Table 5",
-        text: "hello there",
-      },
-      {
-        title: "Table 6",
-        text: "hello there",
-      },
-      {
-        title: "Table 7",
-        text: "hello there",
-      },
-      {
-        title: "Table 8",
-        text: "hello there",
-      },
-    ];
+
+function Cards({user}){
+
+    const[posts,setPosts] = useState([]);
+    
+    useEffect(()=>{
+      db.collection('Restaurant').doc(user.uid).collection("tables").onSnapshot(snapshot =>{
+        setPosts(snapshot.docs.map(docu =>({
+          id: docu.id,
+          card: docu.data()
+        })));      
+      })
+    },[]);
   
-    return <div className="grid">
-        {cardInfo.map((card,index) => {
-               return<Cardsflip key={index} card={card}/>
+    return (<div className="grid">
+        {posts.map(({card,id}) => {
+               return<Cardsflip table={card.table} index={id} user={user}  />
         })
     }
     </div>
+    )
   };
   
   export default Cards;

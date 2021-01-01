@@ -4,6 +4,9 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Sign_in from "./Sign_In";
 import Admin from "./Admin";
+import LoginForm from './LoginForm';
+import Cards from "./Cards";
+import Test from "./Test";
 
 function App() {
   return (
@@ -13,8 +16,11 @@ function App() {
           <Route path="/Admin">
             <Admin />
           </Route>
+          <Route path="/Test">
+            <Test />
+          </Route>
           <Route path="/">
-            <Sign_in />
+            <LoginForm/>
           </Route>
         </Switch>
       </div>
