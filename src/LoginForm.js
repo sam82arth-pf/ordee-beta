@@ -45,6 +45,7 @@ function LoginForm() {
       })
       .catch((error) => alert(error.message));
   };
+
   const signUpButton = () => {
     container.classList.add("right-panel-active");
   };
@@ -54,18 +55,18 @@ function LoginForm() {
   };
 
   return (
-    <div className="container" id="container">
+    <div>
       {user ? (
         user.email === "a@g.com" ? (
           <Redirect to="/Admin" />
         ) : (
-          <div>
-            <Navbar />
+          <div className="LoginForm__mains">
+            <Navbar username={user} />
             <Cards user={user} />
           </div>
         )
       ) : (
-        <div>
+        <div className="container" id="container">
           <div className="form-container sign-up-container">
             <form action="#">
               <h1>Create Account</h1>
@@ -132,7 +133,7 @@ function LoginForm() {
               <div className="overlay-panel overlay-right">
                 <h1>Hello,</h1>
                 <p>Enter your personal details and get on board with us</p>
-                <button className="ghost" id="contaier" onClick={signUpButton}>
+                <button className="ghost" id="container" onClick={signUpButton}>
                   Sign up
                 </button>
               </div>
