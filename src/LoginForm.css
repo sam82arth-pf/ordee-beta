@@ -1,10 +1,7 @@
-* {
+*{
 	box-sizing: border-box;
 }
 
-.LoginForm__main{
-	margin-left: -862px;
-}
 body {
 	background: #f6f5f7;
 	display: flex;

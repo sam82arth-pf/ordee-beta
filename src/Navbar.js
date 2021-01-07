@@ -14,12 +14,11 @@ function Navbar({username}) {
   const[sidebar,setSidebar] = useState(false);
   const[name,setName]=useState('');
   
-
-  const showSidebar =() =>setSidebar(!sidebar);
+  const showSidebar = () =>setSidebar(!sidebar);
 
   useEffect(()=>{
     db.collection('Restaurant').doc(username.uid).onSnapshot(snapshot =>{
-      setName(snapshot.data().Name)  
+      setName(snapshot.data().name)  
     })
   },[name]);
 
@@ -27,12 +26,9 @@ function Navbar({username}) {
   const Button_OnClick=(event)=>{
     event.preventDefault();
     return db.collection('Restaurant').doc(username.uid).collection("tables").add({
-      table:'hey',
+      table:'Hey Tap me for new orders',
     })
   }
-
-
-
     return (
       
       <IconContext.Provider value={{color: '#fff'}}>
@@ -76,11 +72,10 @@ function Navbar({username}) {
               alt=""
               onClick={() => auth.signOut()}
             />
-            
-            <h1 className="name">{name}</h1>
+            <h4 className="name">{name}</h4>
             
             </Link>
-            <Button onClick={Button_OnClick}>Hii</Button>
+           
             
         </nav>
         </IconContext.Provider>
