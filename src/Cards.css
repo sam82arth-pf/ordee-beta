@@ -1,4 +1,8 @@
+*{
+  margin:0;
+}
 body {
+  overflow: auto;
   font-family: 'Cookie', cursive;
   font-family: 'Parisienne', cursive;
   font-family: 'Satisfy', cursive;
@@ -70,7 +74,7 @@ body {
   color: #0b85a2;
 }
 
-.card .front img {
+.card .front  {
   border-radius: 50%;
   object-fit: cover;
   width: 40%;
@@ -79,7 +83,7 @@ body {
   text-align: center;
 }
 
-.card .back img {
+.card .back {
   border-radius: 50%;
   object-fit: cover;
   width: 114%;
@@ -112,10 +116,21 @@ body {
   flex-direction: row;
   margin-top: 130px;
   justify-content: center;
-  /* margin-left: 135px; */
+ 
   text-align: center;
 }
 
 .grid > div {
   flex-basis: calc(25% - 40px);
+}
+
+.bill{
+  width:275px;
+  height:275px;
+  border-radius: 50%;
+  justify-content: center;
+  display:flex;
+  align-items: center;
+ 
+  
 }
