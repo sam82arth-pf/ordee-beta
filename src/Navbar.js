@@ -84,7 +84,9 @@ function Navbar({username}) {
               alt=""
               onClick={() => auth.signOut()}
             />
-            <h6 className="name">{name}</h6>
+            <div className='username'>
+            <h6>{name}</h6>
+            </div>
             </Link>
            
             
