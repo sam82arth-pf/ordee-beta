@@ -5,13 +5,18 @@ import {db} from './firebase';
 
 
 function Cardflip({table,index,user}) {
-
- 
+    
+    
+        if(table === 'bill'){
+           return <img className="bill"
+                 src={"./bill.gif"}
+                 alt=""/>
+         }
+    
     const deletes = () => {
         db.collection("Restaurant").doc(user.uid).collection("tables").doc(index)
           .update('table','')
-      };
-      
+      };      
     return (
         <div >
             <div 
@@ -22,7 +27,7 @@ function Cardflip({table,index,user}) {
             <h3>No orders</h3>
          </div>
          <div className = 'back'  >
-        {table}
+           {table}
        </div>
         </div>
         </div>

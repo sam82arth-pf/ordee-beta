@@ -60,7 +60,7 @@ function LoginForm() {
         user.email === "a@g.com" ? (
           <Redirect to="/Admin" />
         ) : (
-          <div className="LoginForm__mains">
+          <div>
             <Navbar username={user} />
             <Cards user={user} />
           </div>

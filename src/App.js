@@ -6,7 +6,7 @@ import Sign_in from "./Sign_In";
 import Admin from "./Admin";
 import LoginForm from './LoginForm';
 import Cards from "./Cards";
-import Test from "./Test";
+
 
 function App() {
   return (
@@ -15,9 +15,6 @@ function App() {
         <Switch>
           <Route path="/Admin">
             <Admin />
-          </Route>
-          <Route path="/Test">
-            <Test />
           </Route>
           <Route path="/">
             <LoginForm/>
