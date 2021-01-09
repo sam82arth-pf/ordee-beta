@@ -47,11 +47,11 @@ function LoginForm() {
   };
 
   const signUpButton = () => {
-    container.classList.add("right-panel-active");
+    document.getElementById("container").classList.add("right-panel-active");
   };
 
   const signInButton = () => {
-    container.classList.remove("right-panel-active");
+    document.getElementById("container").classList.remove("right-panel-active");
   };
 
   return (

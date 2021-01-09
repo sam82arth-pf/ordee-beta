@@ -11,7 +11,7 @@ function Cardflip({table,index,user}) {
           .update('table','')
       }; 
 
-        if(table === 'bill'){
+        if(table === 'bill' ||table==="hey can i get the bill"){
            return <img className="bill"
                  src={"./bill.jpeg"}
                  alt=""
@@ -19,11 +19,6 @@ function Cardflip({table,index,user}) {
          }else if(table === 'waiter'){
             return <img className="bill"
             src={"./waiter.jpeg"}
-            alt=""
-            onClick={deletes}/>
-         }else if(table === 'hey' || table === "Hey"){
-            return <img className="bill"
-            src={"./hey.jpeg"}
             alt=""
             onClick={deletes}/>
          }
