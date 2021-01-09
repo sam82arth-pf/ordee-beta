@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import './Navbar.css';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
+import * as IoIcons from 'react-icons/io';
 import {Sidebardata } from './Sidebardata';
 import { Button, Input } from "@material-ui/core";
 import {IconContext} from 'react-icons';
@@ -18,17 +19,27 @@ function Navbar({username}) {
 
   useEffect(()=>{
     db.collection('Restaurant').doc(username.uid).onSnapshot(snapshot =>{
-      setName(snapshot.data().name)  
+      setName(snapshot.data().Name)  
     })
   },[name]);
 
 
-  const Button_OnClick=(event)=>{
+  const Add_Card=(event)=>{
     event.preventDefault();
     return db.collection('Restaurant').doc(username.uid).collection("tables").add({
-      table:'Hey Tap me for new orders',
+      table:'Hey',
     })
   }
+    const Delete_Card=(event)=>{
+      db.collection("posts").doc()
+      .get()
+      .then((res) => {
+        res.forEach((element) => {
+          element.ref.delete(doc => doc.data().table);
+        });
+      });  
+    }
+  
     return (
       
       <IconContext.Provider value={{color: '#fff'}}>
@@ -66,14 +77,14 @@ function Navbar({username}) {
              
              
             <Link>
+            <IoIcons.IoIosAddCircle className="add_card"onClick={Add_Card}/>
             <img
               className="user_icon"
               src="https://www.searchpng.com/wp-content/uploads/2019/02/Profile-ICon.png"
               alt=""
               onClick={() => auth.signOut()}
             />
-            <h4 className="name">{name}</h4>
-            
+            <h6 className="name">{name}</h6>
             </Link>
            
             
