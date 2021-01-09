@@ -2,6 +2,7 @@
   margin:0;
 }
 body {
+  overflow: auto;
   font-family: 'Cookie', cursive;
   font-family: 'Parisienne', cursive;
   font-family: 'Satisfy', cursive;
