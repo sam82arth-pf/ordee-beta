@@ -11,7 +11,6 @@ function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [user, setUser] = useState(null);
-  const container = document.getElementById("container");
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
@@ -47,11 +46,11 @@ function LoginForm() {
   };
 
   const signUpButton = () => {
-    container.classList.add("right-panel-active");
+    document.getElementById("container").classList.add("right-panel-active");
   };
 
   const signInButton = () => {
-    container.classList.remove("right-panel-active");
+    document.getElementById("container").classList.remove("right-panel-active");
   };
 
   return (
@@ -114,7 +113,9 @@ function LoginForm() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <a>Forgot your password?</a>
+              <a>
+                <Link to='/Password__Reset'>Forgot your password?</Link>
+              </a>
               <button onClick={Login}>Sign in</button>
             </form>
           </div>
@@ -145,3 +146,4 @@ function LoginForm() {
   );
 }
 export default LoginForm;
+
