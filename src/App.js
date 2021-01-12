@@ -6,6 +6,7 @@ import Sign_in from "./Sign_In";
 import Admin from "./Admin";
 import LoginForm from './LoginForm';
 import Cards from "./Cards";
+import Password__Reset from './Password__reset'
 
 
 function App() {
@@ -15,6 +16,9 @@ function App() {
         <Switch>
           <Route path="/Admin">
             <Admin />
+          </Route>
+          <Route path="/Password__Reset">
+            <Password__Reset/>
           </Route>
           <Route path="/">
             <LoginForm/>
