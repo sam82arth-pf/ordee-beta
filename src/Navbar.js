@@ -27,7 +27,7 @@ function Navbar({username}) {
   const Add_Card=(event)=>{
     event.preventDefault();
     return db.collection('Restaurant').doc(username.uid).collection("tables").add({
-      table:'Hey',
+      table:'Heyo',
     })
   }
     const Delete_Card=(event)=>{
