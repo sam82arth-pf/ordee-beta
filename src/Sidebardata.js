@@ -1,6 +1,6 @@
 import React from 'react';
 import * as AiIcons from 'react-icons/ai';
-
+import Profile from './Profile'
 
 
 export const Sidebardata=[
@@ -11,20 +11,20 @@ export const Sidebardata=[
         cName: 'nav-text'
     },
     {
-        title: 'Home',
-        path:'/',
+        title: 'Settings',
+        path:'/Settings',
         icon:<AiIcons.AiFillHome />,
         cName: 'nav-text'
     },
     {
-        title: 'Home',
-        path:'/',
+        title: 'Profile',
+        path:'/Profile',
         icon:<AiIcons.AiFillHome />,
         cName: 'nav-text'
     },
     {
-        title: 'Home',
-        path:'/',
+        title: 'Support',
+        path:'/Support',
         icon:<AiIcons.AiFillHome />,
         cName: 'nav-text'
     },
