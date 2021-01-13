@@ -41,15 +41,14 @@ function Navbar({username}) {
     }
   
     return (
-      
-      <IconContext.Provider value={{color: '#fff'}}>
+      <div>
+              <IconContext.Provider value={{color: '#fff'}}>
         <nav className="navbar" >
           <Link to="#" className="menu-bars">
           <FaIcons.FaBars onClick={showSidebar} />
-          
           </Link>
           <nav className={sidebar ? 'nav-menu active': 'nav-menu'}>
-            <ul className = 'nav-menu-items'>
+            <ul className = 'nav-menu-items' onClick={showSidebar}>
               <li className='navbar-toggle'>
                 <Link to ='#' className='menu-bars'>
                   <AiIcons.AiOutlineClose onClick={showSidebar}/>
@@ -87,12 +86,11 @@ function Navbar({username}) {
             <div className='username'>
             <h6>{name}</h6>
             </div>
-            </Link>
-           
-            
+            </Link> 
         </nav>
         </IconContext.Provider>
-        
+        </div>
+
     );
 }
 

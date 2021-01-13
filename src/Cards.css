@@ -6,17 +6,7 @@ body {
   font-family: 'Cookie', cursive;
   font-family: 'Parisienne', cursive;
   font-family: 'Satisfy', cursive;
-  background: #ece9e6; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to bottom,
-    #e9e5e5,
-    #ddd9d4
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to bottom,
-    #fdfdfd,
-    #d4d1ce
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #ffffff; /* fallback for old browsers */
 }
 
 .card {
