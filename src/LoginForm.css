@@ -48,9 +48,7 @@ button {
 	letter-spacing: 1px;
 	/* text-transform: uppercase; */
     transition: transform 80ms ease-in;
-    font-family: 'Cookie', cursive;
-    font-family: 'Parisienne', cursive;
-    font-family: 'Satisfy', cursive;
+	font-family: 'Open Sans', sans-serif;
     
 }
 
@@ -80,13 +78,12 @@ form {
 
 input {
 	background-color: #eee;
-	border: none;
+	border-radius: 20px;
+	border: 1px solid #ffffff;
 	padding: 12px 15px;
 	margin: 8px 0;
     width: 100%;
-    font-family: 'Cookie', cursive;
-    font-family: 'Parisienne', cursive;
-    font-family: 'Satisfy', cursive;
+	font-family: 'Open Sans', sans-serif;
     font-size: 22px;
 }
 
