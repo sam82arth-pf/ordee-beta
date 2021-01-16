@@ -10,7 +10,6 @@ import { Button, Input } from "@material-ui/core";
 import {IconContext} from 'react-icons';
 
 
-
 function Navbar({username}) {
   const[sidebar,setSidebar] = useState(false);
   const[name,setName]=useState('');
@@ -23,13 +22,6 @@ function Navbar({username}) {
     })
   },[name]);
 
-
-  const Add_Card=(event)=>{
-    event.preventDefault();
-    return db.collection('Restaurant').doc(username.uid).collection("tables").add({
-      table:'Hey',
-    })
-  }
     const Delete_Card=(event)=>{
       db.collection("posts").doc()
       .get()
@@ -59,7 +51,7 @@ function Navbar({username}) {
                   <li key={index} className={item.cName}>
                       <Link to={item.path}>
                       {item.icon}
-                      <span>{item.title}</span>
+                      <span className="Sidebar_Name">{item.title}</span>
                       </Link>
                   </li>
                 )
@@ -73,19 +65,15 @@ function Navbar({username}) {
              alt="" 
              onClick={() => auth.signOut()}
              />
-             
-             
+            
             <Link>
-            <IoIcons.IoIosAddCircle className="add_card"onClick={Add_Card}/>
             <img
               className="user_icon"
               src="https://www.searchpng.com/wp-content/uploads/2019/02/Profile-ICon.png"
               alt=""
               onClick={() => auth.signOut()}
             />
-            <div className='username'>
-            <h6>{name}</h6>
-            </div>
+            <h6 className="username">{name}</h6>
             </Link> 
         </nav>
         </IconContext.Provider>
