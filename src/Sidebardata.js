@@ -1,6 +1,11 @@
 import React from 'react';
 import * as AiIcons from 'react-icons/ai';
-import Profile from './Profile'
+import * as RiIcons from 'react-icons/ri';
+import * as ImIcons from 'react-icons/im';
+import * as BiIcons from 'react-icons/bi';
+
+
+
 
 
 export const Sidebardata=[
@@ -13,19 +18,19 @@ export const Sidebardata=[
     {
         title: 'Settings',
         path:'/Settings',
-        icon:<AiIcons.AiFillHome />,
+        icon:<RiIcons.RiSettings2Fill />,
         cName: 'nav-text'
     },
     {
-        title: 'Profile',
+        title: 'Account',
         path:'/Profile',
-        icon:<AiIcons.AiFillHome />,
+        icon:<ImIcons.ImUser />,
         cName: 'nav-text'
     },
     {
         title: 'Support',
         path:'/Support',
-        icon:<AiIcons.AiFillHome />,
+        icon:<BiIcons.BiSupport />,
         cName: 'nav-text'
     },
 ]
