@@ -26,7 +26,10 @@ function Profile({user1}){
           State:state,
           Country:country,
           PostalCode:postalcode
+        }).then(function () {
+          alert("Account Updated");
         });
+        
       }
       
     return (
@@ -65,7 +68,7 @@ function Profile({user1}){
         <br></br>
        </div>
        <div className="profile_button">
-        <button>Update</button>
+        <button onClick={Update}>Update</button>
         </div>  
 
         <div className="col2">
