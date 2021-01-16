@@ -84,8 +84,9 @@ input {
 	margin: 8px 0;
     width: 100%;
 	font-family: 'Nunito', sans-serif;
-    font-size: 22px;
+    font-size: 3vh;
 }
+
 
 .form-container {
 	position: absolute;

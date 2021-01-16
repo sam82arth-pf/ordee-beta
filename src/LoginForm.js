@@ -48,11 +48,7 @@ function LoginForm() {
           Name: username,
           Phone: phone,
           Email: email,
-          Address1:address1,
-          Address2:address2,
-          State:state,
-          Country:country,
-          PostalCode:postalcode
+          Password:password,
         });
       })
       .catch((error) => alert(error.message));
