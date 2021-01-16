@@ -3,9 +3,7 @@
 }
 body {
   overflow: auto;
-  font-family: 'Cookie', cursive;
-  font-family: 'Parisienne', cursive;
-  font-family: 'Satisfy', cursive;
+  font-family: 'Nunito', sans-serif;
   background: #ffffff; /* fallback for old browsers */
 }
 
@@ -24,15 +22,14 @@ body {
     #26a0da,
     #314755
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
   border-radius: 50%;
   cursor: pointer;
   align-items: center;
   justify-content: center;
   display: flex;
   position: relative;
-  font-size: 6vh;
-  font-weight: 400;
+  font-size: 4vh;
+  font-weight: 300;
   color: white;
   -webkit-box-shadow: 0px 12px 18px -6px rgba(0, 0, 0, 0.3);
   box-shadow: 10px 12px 18px -6px rgba(37, 37, 37, 0.753);
@@ -49,7 +46,7 @@ body {
 
 .card.flip {
   --rotate-y: 180deg;
-  background: #e0eafc; /* fallback for old browsers */
+  background: #bfd1f3; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to top,
     #ffffff,
@@ -58,10 +55,15 @@ body {
   background: linear-gradient(
     to top,
     #ffffff,
-    #e0eafc
+    #a0c0fc
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   color: #0b85a2;
+  font-size: 5vh;
+  font-weight: 400;
+  font-family: 'Nunito', sans-serif;
+  text-align: center;
+  font-weight: bold;
 }
 
 .card .front  {
@@ -107,6 +109,7 @@ body {
   margin-top: 130px;
   justify-content: center;
   text-align: center;
+  margin: auto;
 }
 
 .grid > div {

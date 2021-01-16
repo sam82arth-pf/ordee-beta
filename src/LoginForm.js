@@ -80,7 +80,7 @@ function LoginForm() {
               <Settings username={user} />
             </Route>
             <Route path="/Profile" component={Profile}>
-              <Profile  username={user} />
+              <Profile  user1={user} />
             </Route>
             <Route path="/Support" component={Support}>
               <Support  username={user} />
