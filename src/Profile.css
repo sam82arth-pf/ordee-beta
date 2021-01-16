@@ -1,7 +1,7 @@
 /* input-height: 75px; */
 
 body {
-  font-family: "Roboto";
+  font-family: 'Nunito', sans-serif;
 }
 
 .form{
@@ -19,9 +19,9 @@ display: flex;
 align-items: center;
 justify-content: center;
 flex-direction: column;
-margin-top: 15vh;
+margin-top: 14vh;
 border-color:  #59d7e7;
 border-width: 5px;
-border-style: groove;
+border-style: ridge;
 background-color: rgb(255, 255, 255);
 }
