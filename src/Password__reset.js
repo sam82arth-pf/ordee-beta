@@ -1,7 +1,9 @@
 import React, { useState} from "react";
 import { Link } from "react-router-dom";
-import "./LoginForm.css";
+import "./Password_reset.css";
 import { auth } from "./firebase";
+import Navbar from './Navbar.js';
+
 function Password__reset() {
   const [email, setEmail] = useState("");
 
@@ -20,16 +22,20 @@ function Password__reset() {
     }
   };
   return (
-    <div>
-      <input
+    <div className="fp">
+      <input id="test"
         type="email"
-        placeholder="Enter Email for Password recovery"
+        placeholder="Enter Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
+      <br></br>
       <button onClick={Send__link}>Send Reset Link</button>
-      <button>
-        <Link to="/">Back to Sign-in</Link>
+      <br></br>
+      <button> 
+        <Link to="/">
+          <a1>Back to Sign in</a1>
+          </Link>
       </button>
     </div>
   );

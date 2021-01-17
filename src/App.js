@@ -6,8 +6,8 @@ import Sign_in from "./Sign_In";
 import Admin from "./Admin";
 import LoginForm from './LoginForm';
 import Cards from "./Cards";
-import Password__Reset from './Password__reset'
 
+import Password_Reset from './Password__reset'
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
             <Admin />
           </Route>
           <Route path="/Password__Reset">
-            <Password__Reset/>
+            <Password_Reset/>
           </Route>
           <Route path="/">
             <LoginForm/>

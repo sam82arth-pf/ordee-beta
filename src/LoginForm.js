@@ -1,14 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { db, auth } from "./firebase";
 import "./LoginForm.css";
-import { Link, Redirect } from "react-router-dom";
-import Cards from "./Cards";
-import Navbar from "./Navbar";
+import { Link, Redirect,Route } from "react-router-dom";
+import Home from './Home';
+import Profile from'./Profile';
+import Settings from './Settings';
+import Support from './Support';
 
 function LoginForm() {
   const [username, setUsername] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
+  const [address1,setAddress1]=useState("");
+  const [address2,setAddress2]=useState("");
+  const [state,setState]=useState("");
+  const [country,setCountry]=useState("");
+  const [postalcode,setPostalCode]=useState("");
   const [password, setPassword] = useState("");
   const [user, setUser] = useState(null);
 
@@ -40,6 +47,7 @@ function LoginForm() {
           Name: username,
           Phone: phone,
           Email: email,
+          Password:password,
         });
       })
       .catch((error) => alert(error.message));
@@ -60,8 +68,19 @@ function LoginForm() {
           <Redirect to="/Admin" />
         ) : (
           <div>
-            <Navbar username={user} />
-            <Cards user={user} />
+            <Route path="/" exact component={Home}>
+            <Home user={user} username={user} />
+            </Route>
+            <Route path="/Settings" component={Settings}>
+              <Settings username={user} />
+            </Route>
+            <Route path="/Profile" component={Profile}>
+              <Profile  user1={user} />
+            </Route>
+            <Route path="/Support" component={Support}>
+              <Support  username={user} />
+            </Route>
+            
           </div>
         )
       ) : (

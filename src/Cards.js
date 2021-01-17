@@ -2,9 +2,6 @@ import React,{useState,useEffect} from "react";
 import Cardsflip from "./Cardsflip";
 import {db} from "./firebase";
 
-
-
-
 function Cards({user}){
 
     const[posts,setPosts] = useState([]);
