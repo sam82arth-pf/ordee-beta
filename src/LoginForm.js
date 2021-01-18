@@ -19,7 +19,6 @@ function LoginForm() {
   const [postalcode,setPostalCode]=useState("");
   const [password, setPassword] = useState("");
   const [user, setUser] = useState(null);
-  const container = document.getElementById("container");
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
@@ -59,6 +58,7 @@ function LoginForm() {
       })
       .catch((error) => alert(error.message));
   };
+
   const google=(event)=>{
     event.preventDefault();
     var provider = new firebase.auth.GoogleAuthProvider();
@@ -87,7 +87,6 @@ function LoginForm() {
     })
     }).catch((error) => alert(error.message));
   }
-
   const signUpButton = () => {
     document.getElementById("container").classList.add("right-panel-active");
   };
@@ -149,6 +148,9 @@ function LoginForm() {
                 onChange={(e) => setPassword(e.target.value)}
               />
               <button onClick={SignUp}>Sign Up</button>
+              
+              
+              
             </form>
           </div>
           <div className="form-container sign-in-container">
@@ -199,5 +201,6 @@ function LoginForm() {
       )}
     </div>
   );
-}
+      }
 export default LoginForm;
+
