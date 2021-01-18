@@ -7,7 +7,7 @@ function Cards({user}){
     const[posts,setPosts] = useState([]);
     
     useEffect(()=>{
-      db.collection('Restaurant').doc(user.uid).collection("tables").onSnapshot(snapshot =>{
+      db.collection('Restaurant').doc(user.uid).collection("tables").orderBy('timestamp','asc').onSnapshot(snapshot =>{
         setPosts(snapshot.docs.map(docu =>({
           id: docu.id,
           card: docu.data()
