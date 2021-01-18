@@ -16,4 +16,4 @@ Burger menu-settings,account,support,Home
 
 Account-Update
 
-settings-add table
+settings-add tables
