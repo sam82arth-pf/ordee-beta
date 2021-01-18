@@ -16,6 +16,8 @@ function Profile({user1}){
   const [country,setCountry]=useState("");
   const [postalcode,setPostalCode]=useState("");
 
+  
+
   const Update = () => {
          db.collection("Restaurant").doc(user1.uid).update({
           Name: username,
@@ -31,6 +33,19 @@ function Profile({user1}){
         });
         
       }
+      useEffect(()=>{
+        
+        db.collection('Restaurant').doc(user1.uid).onSnapshot(snapshot =>{
+          setUsername(snapshot.data().Name) 
+          setPhone(snapshot.data().Phone) 
+          setEmail(snapshot.data().Email) 
+          setAddress1(snapshot.data().Address1) 
+          setAddress2(snapshot.data().Address2) 
+          setState(snapshot.data().State) 
+          setCountry(snapshot.data().Country) 
+          setPostalCode(snapshot.data().PostalCode) 
+        })
+      },[user1]);
       
     return (
 
@@ -44,6 +59,7 @@ function Profile({user1}){
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
+        
         <br></br>
         <input
           type="phone"

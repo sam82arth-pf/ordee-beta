@@ -49,6 +49,11 @@ function LoginForm() {
           Phone: phone,
           Email: email,
           Password:password,
+          Address1:"",
+          Address2:'',
+          State:'',
+          Country:'',
+          PostalCode:''
         });
       })
       .catch((error) => alert(error.message));
