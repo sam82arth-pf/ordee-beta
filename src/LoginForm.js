@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { db, auth } from "./firebase";
+import firebase from "firebase";
 import "./LoginForm.css";
 import { Link, Redirect,Route } from "react-router-dom";
 import Home from './Home';
@@ -18,7 +19,6 @@ function LoginForm() {
   const [postalcode,setPostalCode]=useState("");
   const [password, setPassword] = useState("");
   const [user, setUser] = useState(null);
-  const container = document.getElementById("container");
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
@@ -59,6 +59,34 @@ function LoginForm() {
       .catch((error) => alert(error.message));
   };
 
+  const google=(event)=>{
+    event.preventDefault();
+    var provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth()
+    .signInWithPopup(provider)
+    .then((result) => {
+      /** @type {firebase.auth.OAuthCredential} */
+      var credential = result.credential;
+  
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      var token = credential.accessToken;
+      // The signed-in user info.
+      var user = result.user;
+      return db.collection("Restaurant").doc(result.user.uid).set({
+        Name: user.displayName,
+        Phone: '',
+        Email: user.email,
+            Address1:'',
+            Address2:'',
+            State:'',
+            Country:'',
+            PostalCode:''
+  
+        
+      // ...
+    })
+    }).catch((error) => alert(error.message));
+  }
   const signUpButton = () => {
     document.getElementById("container").classList.add("right-panel-active");
   };
@@ -120,6 +148,9 @@ function LoginForm() {
                 onChange={(e) => setPassword(e.target.value)}
               />
               <button onClick={SignUp}>Sign Up</button>
+              
+              
+              
             </form>
           </div>
           <div className="form-container sign-in-container">
@@ -142,6 +173,7 @@ function LoginForm() {
                 <Link to='/Password__Reset'>Forgot your password?</Link>
               </a>
               <button onClick={Login}>Sign in</button>
+              <button onClick={google}>Google</button>
             </form>
           </div>
           <div className="overlay-container">
@@ -169,5 +201,6 @@ function LoginForm() {
       )}
     </div>
   );
-}
+      }
 export default LoginForm;
+
