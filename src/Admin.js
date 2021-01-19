@@ -7,7 +7,7 @@ import Navbar from'./Navbar'
 function admin() {
   return (
     <div>
-       <Navbar/>
+       <Navbar />
       <div className="Admin__Title">
 <h1>Hey Palash,admin features coming soon</h1>
       </div>

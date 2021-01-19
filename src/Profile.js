@@ -1,9 +1,8 @@
 import Navbar from './Navbar.js';
 import React, { useState, useEffect } from "react";
-import { db, auth } from "./firebase";
-import { Link, Redirect,Route } from "react-router-dom";
+import { db } from "./firebase";
 import './Profile.css';
-import * as ImIcons from 'react-icons/im';
+
 
 
 function Profile({user1}){
@@ -34,7 +33,7 @@ function Profile({user1}){
         
       }
       useEffect(()=>{
-        
+
         db.collection('Restaurant').doc(user1.uid).onSnapshot(snapshot =>{
           setUsername(snapshot.data().Name) 
           setPhone(snapshot.data().Phone) 
