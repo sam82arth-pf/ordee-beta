@@ -17,7 +17,7 @@ function Cards({user}){
   
     return (<div className="grid">
         {posts.map(({card,id}) => {
-               return<Cardsflip table={card.table} index={id} user={user}  />
+               return<Cardsflip table={card.table} id={card.id} index={id} user={user}  />
         })
     }
     </div>
