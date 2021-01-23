@@ -1,13 +1,34 @@
-import React from "react";
 import "./App.css";
+import React, {useState,useEffect} from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Admin from "./Admin";
 import LoginForm from './LoginForm';
-
-
+import Cards from "./Cards";
+import Loading from "./Loading";
 import Password_Reset from './Password__reset'
 
 function App() {
+
+  const [isLoading, setLoading] = useState(true);
+
+  function fakeRequest() {
+    return new Promise(resolve => setTimeout(() => resolve(), 2500));
+  }
+
+  useEffect(() => {
+    fakeRequest().then(() => {
+      const el = document.querySelector(".loader-container");
+      if (el) {
+        el.remove();
+        setLoading(!isLoading);
+      }
+    });
+  }, []);
+
+  if (isLoading) {
+    return null;
+  }
+
   return (
     <Router>
       <div className="App">

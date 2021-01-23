@@ -1,9 +1,8 @@
-
 .navbar {
   top: 0;
   background-color: black;
   display: flex;
-  height: 100px;
+  height: 75px;
   align-items: center;
   width: 100%;
   position: sticky;
@@ -13,22 +12,24 @@
 
 .navicon {
   object-fit: contain;
-  width: 180px;
-  height: 100px;
-  margin-top: -9px;
+  width: 150px;
+  height: 80px;
+  margin-top: -16px;
   justify-content: center;
 }
 
 .user_icon {
-  width: 85px;
-  height: 75px;
+  width: 80px;
+  height: 70px;
   align-items: center;
-  padding: 5px;
+  padding: 7px;
+  margin-top: -15px;
 }
 .menu-bars {
   margin-left: 2rem;
-  font-size: 2rem;
+  font-size: 1.7rem;
   background: none;
+  margin-top: 20px;
 }
 
 .nav-menu {
@@ -37,10 +38,10 @@
   height: 100vh;
   display: flex;
   justify-content: center;
-  position: fixed;
+  position:absolute;
   top: 0;
-  margin-top: 30px;
-  margin-left: -40px;
+  margin-top: 15px;
+  margin-left: -10px;
   left: -100%;
   transition: 850ms;
 }
@@ -56,7 +57,7 @@
   align-items: center;
   padding: 8px 0px 8px 16px;
   list-style: none;
-  height: 60px;
+  height: 50px;
 }
 
 .nav-text a {
@@ -72,7 +73,17 @@
 }
 
 .nav-text a:hover {
-  background-color: #2da1b1;
+  background: #314755; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to bottom,
+    #26a0da,
+    #346280
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    #26a0da,
+    #314755
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .nav-menu-items {
@@ -82,7 +93,7 @@
 .navbar-toggle {
   background-color: #000000;
   width: 100%;
-  height: 80px;
+  height: 65px;
   display: flex;
   justify-content: start;
   align-items: center;
@@ -100,4 +111,3 @@ span {
 .Sidebar_name{
   font-size: 0.5rem;
 }
-

@@ -1,9 +1,10 @@
-*{
-  margin:0;
+* {
+  margin: 0;
 }
 body {
+  text-align: center;
   overflow: auto;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   background: #ffffff; /* fallback for old browsers */
 }
 
@@ -15,7 +16,7 @@ body {
   background: -webkit-linear-gradient(
     to bottom,
     #26a0da,
-    #314755
+    #346280
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     to bottom,
@@ -30,13 +31,14 @@ body {
   position: relative;
   font-size: 4vh;
   font-weight: 300;
+  text-align: center;
   color: white;
   -webkit-box-shadow: 0px 12px 18px -6px rgba(0, 0, 0, 0.3);
   box-shadow: 10px 12px 18px -6px rgba(37, 37, 37, 0.753);
   transform-style: preserve-3d;
   transition: 150ms;
   transform: perspective(1000px) rotateY(var(--rotate-y, 0))
-    translateY(var(--translate-y, 0));
+  translateY(var(--translate-y, 0));
 }
 
 .card:hover {
@@ -46,27 +48,27 @@ body {
 
 .card.flip {
   --rotate-y: 180deg;
-  background: #bfd1f3; /* fallback for old browsers */
+  background: #ffffff; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to top,
     #ffffff,
-    #e0eafc
+    #f7f8fc
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     to top,
-    #ffffff,
-    #a0c0fc
+    #e1effc,
+    #3089ac
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-  color: #0b85a2;
+  color: #2d5d69;
   font-size: 5vh;
-  font-weight: 400;
-  font-family: 'Nunito', sans-serif;
+  font-weight: 300;
+  font-family: "Nunito", sans-serif;
   text-align: center;
   font-weight: bold;
 }
 
-.card .front  {
+.card .front {
   border-radius: 50%;
   object-fit: cover;
   width: 40%;
@@ -110,19 +112,19 @@ body {
   justify-content: center;
   text-align: center;
   margin: auto;
+  animation: backInDown; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 2s; /* don't forget to set a duration! */
 }
 
 .grid > div {
   flex-basis: calc(25% - 40px);
 }
 
-.bill{
-  width:280px;
-  height:280px;
+.bill {
+  width: 280px;
+  height: 280px;
   border-radius: 50%;
   justify-content: center;
-  display:flex;
+  display: flex;
   align-items: center;
- 
-  
 }

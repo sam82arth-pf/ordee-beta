@@ -2,21 +2,22 @@ import React, { useState, useEffect } from "react";
 import { db, auth } from "./firebase";
 import firebase from "firebase";
 import "./LoginForm.css";
-import { Link, Redirect, Route } from "react-router-dom";
-import Home from "./Home";
-import Profile from "./Profile";
-import Settings from "./Settings";
-import Support from "./Support";
+import { Link, Redirect,Route } from "react-router-dom";
+import Home from './Home';
+import Profile from'./Profile';
+import Settings from './Settings';
+import Support from './Support';
+import {FaGoogle} from 'react-icons/fa';
 
 function LoginForm() {
   const [username, setUsername] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
-  const [address1, setAddress1] = useState("");
-  const [address2, setAddress2] = useState("");
-  const [state, setState] = useState("");
-  const [country, setCountry] = useState("");
-  const [postalcode, setPostalCode] = useState("");
+  const [address1,setAddress1]=useState("");
+  const [address2,setAddress2]=useState("");
+  const [state,setState]=useState("");
+  const [country,setCountry]=useState("");
+  const [postalcode,setPostalCode]=useState("");
   const [password, setPassword] = useState("");
   const [user, setUser] = useState(null);
 
@@ -48,43 +49,41 @@ function LoginForm() {
           Name: username,
           Phone: phone,
           Email: email,
-          Password: password,
-          Address1: "",
-          Address2: "",
-          State: "",
-          Country: "",
-          PostalCode: "",
+          Address1:"",
+          Address2:'',
+          State:'',
+          Country:'',
+          PostalCode:''
         });
       })
       .catch((error) => alert(error.message));
   };
 
-  const google = (event) => {
+  const google=(event)=>{
     event.preventDefault();
     var provider = new firebase.auth.GoogleAuthProvider();
-    firebase
-      .auth()
-      .signInWithPopup(provider)
-      .then((result) => {
-        var credential = result.credential;
-
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        var token = credential.accessToken;
-        // The signed-in user info.
-        var user = result.user;
-        return db.collection("Restaurant").doc(result.user.uid).set({
-          Name: user.displayName,
-          Phone: "",
-          Email: user.email,
-          Address1: "",
-          Address2: "",
-          State: "",
-          Country: "",
-          PostalCode: "",
-        });
-      })
-      .catch((error) => alert(error.message));
-  };
+    firebase.auth()
+    .signInWithPopup(provider)
+    .then((result) => {
+      /** @type {firebase.auth.OAuthCredential} */
+      var credential = result.credential;
+  
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      var token = credential.accessToken;
+      // The signed-in user info.
+      var user = result.user;
+      return db.collection("Restaurant").doc(result.user.uid).set({
+        Name: user.displayName,
+        Phone: '',
+        Email: user.email,
+            Address1:'',
+            Address2:'',
+            State:'',
+            Country:'',
+            PostalCode:''
+    })
+    }).catch((error) => alert(error.message));
+  }
   const signUpButton = () => {
     document.getElementById("container").classList.add("right-panel-active");
   };
@@ -101,17 +100,18 @@ function LoginForm() {
         ) : (
           <div>
             <Route path="/" exact component={Home}>
-              <Home user={user} username={user} />
+            <Home user={user} username={user} />
             </Route>
             <Route path="/Settings" component={Settings}>
               <Settings username={user} />
             </Route>
             <Route path="/Profile" component={Profile}>
-              <Profile user1={user} />
+              <Profile  user1={user} />
             </Route>
             <Route path="/Support" component={Support}>
-              <Support username={user} />
+              <Support  username={user} />
             </Route>
+            
           </div>
         )
       ) : (
@@ -145,7 +145,7 @@ function LoginForm() {
                 onChange={(e) => setPassword(e.target.value)}
               />
               <button onClick={SignUp}>Sign Up</button>
-            </form>
+              </form>
           </div>
           <div className="form-container sign-in-container">
             <form action="#">
@@ -164,10 +164,44 @@ function LoginForm() {
                 onChange={(e) => setPassword(e.target.value)}
               />
               <a>
-                <Link to="/Password__Reset">Forgot your password?</Link>
+                <Link to='/Password__Reset'>Forgot your password?</Link>
               </a>
               <button onClick={Login}>Sign in</button>
-              <button onClick={google}>Google</button>
+              <br></br>
+              <br></br>
+              <div className="soical">
+               <ul class='social'> 
+               <li class='social'>
+                  <button id='google' onClick={google}></button>
+                  <a href="#">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span class="fa fa-google">
+                  </span>
+                  </a> 
+                </li>
+               <li class='social'>
+                 <a href="#">
+                 <span></span>
+                 <span></span>
+                 <span></span>
+                 <span></span>
+                 <span class="fa fa-facebook"></span>
+                 </a> 
+                </li>
+                <li class='social'>
+                  <a href="#">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span class="fa fa-instagram"></span>
+              </a> 
+                </li>
+               </ul>  
+              </div> 
             </form>
           </div>
           <div className="overlay-container">
@@ -175,7 +209,7 @@ function LoginForm() {
               <div className="overlay-panel overlay-left">
                 <h1>Welcome Back!</h1>
                 <p>
-                  To keep connected with us please login with your personal info
+                  To keep connected with us please login with your details
                 </p>
                 <button className="ghost" id="signIn" onClick={signInButton}>
                   {/*check for id here as refreshing the page does not support animation and displays error */}
@@ -195,5 +229,5 @@ function LoginForm() {
       )}
     </div>
   );
-}
+      }
 export default LoginForm;

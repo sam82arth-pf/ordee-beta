@@ -8,9 +8,6 @@ import Timer from './Timer';
 function Cardflip({id,table,index,user}) {
     const[time,setTime] = useState({ms:0,s:0, m:0});
     const [interv,setInterv] = useState();
-   
-  
-   
     const start=()=>{
             run();
            setInterv(setInterval(run , 10)); 
